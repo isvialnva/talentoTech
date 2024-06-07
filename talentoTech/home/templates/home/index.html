@@ -47,7 +47,12 @@
 							</ul>
 						</li>
 						<li><a href="#" class="animsition-link">contact us</a></li>
-						<li><a href="{% url 'login' %}" class="animsition-link">Login</a></li>
+						{% if user.is_authenticated %}
+							<li><a href="{% url 'indexadmin' %}">Gestión</a></li>
+							<li><a href="{% url 'logout' %}">Salir</a></li>
+						{% else %}
+							<li><a href="{% url 'login' %}">Ingresar</a></li>
+						{% endif %}
 					</ul>
 				</nav>
 				<!-- mobile navbar -->
